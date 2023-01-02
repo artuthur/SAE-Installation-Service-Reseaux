@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>rapport_final</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1
+id="rapport-final-saé-2.03-installation-de-services-réseaux"><strong><span style="color: #26B260">Rapport
+Final SAé 2.03 : Installation de services réseaux</strong></h1>
+<p><strong><em>BOUTON Sacha</em></strong>, <strong><em>CASTEUR
+Anaïs</em></strong>, <strong><em>DEBACQ Arthur</em></strong>.</p>
+<p><br></p>
+<h1 id="table-des-matières">Table des matières :</h1>
+<p><a href="#intro">Introduction</a><br />
+<a href="#Etape_1">Etape 1 : Création d’une machine virtuelle
+Debian</a><br />
+  - <a href="#Etape1_1">1.1. Prérequis pré-installation de la machine
+virtuelle</a><br />
+  - <a href="#Etape1_2">1.2. Préparation de la machine
+virtuelle</a><br />
+  - <a href="#Etape1_3">1.3. Installation du système
+d’exploitation</a><br />
+<a href="#Etape_2">Etape 2 : Préparation du système</a><br />
+  - <a href="#Etape2_1">2.1. Ajout d’un utilisateur dans le groupe
+d’utilisateur sudo</a><br />
+  - <a href="#Etape2_2">2.2. Installation de logiciels et
+paquets</a><br />
+  - <a href="#Etape2_3">2.3. Installation des suppléments
+invités</a><br />
+  - <a href="#Etape2_4">2.4. Installation de Claws-mail</a><br />
+  - <a href="#Etape2_5">2.5. Configuration du proxy</a><br />
+<a href="#Etape_3">Etape 3 : Sélection d’un front-end</a><br />
+  - <a href="#Etape3_1">3.1. Sélection d’un front-end -
+Préliminaire</a><br />
+     - <a href="#Etape3_1_a">3.1.A. Configuration de Git</a><br />
+     - <a href="#Etape3_1_b">3.1.B. Gitk &amp; Git-GUI</a><br />
+  - <a href="#Etape3_2">3.2. Sélection d’un front-end - Comparaison avec
+une autre interface graphique</a><br />
+     - <a href="#Etape3_2_a">3.2.A. Avantages</a><br />
+     - <a href="#Etape3_2_b">3.2.B. Inconvénients</a><br />
+<a href="#Etape_4">Etape 4 : Installation de Gitea</a><br />
+  - <a href="#Etape4_1">4.1. Installation de Gitea</a><br />
+     - <a href="#Etape4_1_a">4.1.A. Installation et configuration de
+Gitea</a><br />
+     - <a href="#Etape4_1_b">4.1.B. Mises à jour potentielles</a><br />
+  - <a href="#Etape4_2">4.2. Utilisation basique de Gitea</a><br />
+     - <a href="#Etape4_2_a">4.2.A. Création d’un nouveau
+projet</a><br />
+     - <a href="#Etape4_2_b">4.2.B. Déposer des projets
+existants</a><br />
+  - <a href="#Etape4_3">4.3. Dépôt des rapports</a><br />
+  - <a href="#Etape4_4">4.4. Les différents modes d’accès réseau de
+VirtualBox</a><br />
+<a href="#Etape_5">Etape 5 : Finalisation du rapport</a><br />
+<a href="#conclu">Conclusion</a><br />
+<a href="#Sources">Sources</a></p>
+<p><br></p>
+<h1 id="introduction">Introduction : <a id="intro"></a></h1>
+<p>L’objectif de cette SAé consiste à <strong>créer une machine
+virtuelle</strong> avec son <strong>système d’exploitation</strong>,
+<strong>2 utilisateurs</strong>,quelques <strong>logiciels de
+départ</strong> ainsi qu’une <strong>application permettant le travail
+collaboratif à distance</strong>. Nous allons donc diviser ceci en
+plusieurs étapes afin d’<strong>appronfondir les manipulations
+réalisées</strong> et de <strong>permettre la compréhension de tous en
+développant les termes technique employés</strong>, ces étapes feront
+l’objet d’une <strong>rédaction de rapports</strong> en fichier Markdown
+puis le <strong>rapport final sera sous la forme d’un fichier
+html</strong>. Commençons tout d’abord par la création de la machine
+virtuelle Debian.</p>
+<p><br></p>
+<h1
+id="etape-1-création-dune-machine-virtuelle-debian."><strong><a id="Etape_1"></a><span style="color: #fa8722">Etape
+1 : Création d’une machine virtuelle Debian.</strong></h1>
+<h2
+id="prérequis-pré-installation-de-la-machine-virtuelle."><strong><a id="Etape1_1"></a><span style="color: #dfe30e">1.1.
+Prérequis pré-installation de la machine virtuelle.</strong></h2>
+<figure>
+<img
+src="https://img-19.ccm2.net/o8fls4xqGd5ac8WaAq9Kb4hZjHw=/325x/8faf9b4d26334253bcc3e6c5352d0528/ccm-faq/virtualbox.png"
+alt="virutalbox_logo" />
+<figcaption aria-hidden="true">virutalbox_logo</figcaption>
+</figure>
+<p>Afin de répondre à l’objectif il faut au <strong>minimum</strong> que
+votre ordinateur possède :</p>
+<ol type="1">
+<li>4 Gigaoctets de <strong>RAM</strong>,<br />
+</li>
+<li>20 Gigaoctets d’espace disque,<br />
+</li>
+<li>Le logiciel <a href="https://www.virtualbox.org/">Virtual Box</a>
+avec son <strong><em>extension pack</em></strong> nous verrons plus tard
+pourquoi l’extension pack est nécessaire.</li>
+</ol>
+<p>Le terme <strong>RAM</strong> est l’abréviation de
+<strong><em>« Random Access Memory »</em></strong> qui signifie
+« mémoire vive » ou littéralement « mémoire à accès aléatoire ». La RAM
+est un des <strong>éléments fondamentaux</strong> les plus importants de
+l’informatique. Il s’agit de l’<strong>espace de stockage de données
+temporaires et ultra-rapide</strong> auquel un ordinateur doit pouvoir
+accéder immédiatement ou dans les instants qui suivent.</p>
+<p>Vous pouvez retrouvé l’installation du logiciel VirtuaBox dans la
+partie <strong>Sources</strong>.</p>
+<p>Une fois que vous avez acqueris/vérifié les prérequis, nous pouvons
+passé à la préparation de la machine virtuelle via VirtualBox.</p>
+<h2
+id="préparation-de-la-machine-virtuelle."><strong><a id="Etape1_2"></a><span style="color: #dfe30e">1.2.
+Préparation de la machine virtuelle.</strong></h2>
+<p>Nous allons maintenant lancer VirtualBox afin de créer notre toute
+première machine virtuelle, il suffit pour cela soit de cliquer sur le
+logo <strong>“New”</strong> ou <strong>“Nouvelle”</strong> en français
+trouvable sur l’interface graphique soit d’appuyer sur les touches du
+clavier <strong>CTRL+N</strong>.</p>
+<figure>
+<img
+src="https://www.virtualbox.org/manual/images/virtualbox-main-empty.png"
+alt="virtualbox_graphic_interface" />
+<figcaption aria-hidden="true">virtualbox_graphic_interface</figcaption>
+</figure>
+<p>Une fenêtre de dialogue s’ouvre et le début de la création de notre
+machine virutelle commence. Lors de celle-ci il va falloir néanmoins
+respecter <strong>des conditions</strong>.</p>
+<ol type="1">
+<li>La machine doit être <strong>nommé</strong> “sae203”,</li>
+<li>La <strong>distriution</strong> (le type) doit être Linux,</li>
+<li>La <strong>version</strong> doit être Debian-64-bits,</li>
+</ol>
+<p>64 bits est une <strong>version de l’AMD64 (64 bits)</strong> qui est
+l’une des <strong>architectures les plus communes du « grand
+public »</strong>. Pour pouvoir installer une Debian AMD64, il faut un
+processeur <strong>compatible</strong> avec cette architecture (ce qui
+est le cas pour tout les processeurs vendu dans un PC depuis quelques
+années).</p>
+<ol start="4" type="1">
+<li>La <strong>taille de la taille mémoire</strong> doit être fixé à
+2048MégaOctets(Mo),</li>
+<li>Créer un <strong>disque dur virtuel</strong> de <strong>type
+VDI</strong> (VirtualBox Disk Image), <strong>dynamiquement
+alloué</strong> et de <strong>taille 20GigaOctets</strong>(Go).</li>
+</ol>
+<p>La création de notre machine est maintenant terminée et nous pouvons
+retrouver <strong>la configuration</strong> contenu dans un
+<strong>fichier XML</strong> à l’adresse :</p>
+<p><code>%homepath% \&gt; virtualbox \&gt; nom_de_la_vm \&gt; sae20X.vbox-prev</code></p>
+<p>On peut notamment retrouver la <strong>configuration réseau utilisée
+par Debian</strong>. Par défaut <strong>Debian est configurée en
+DHCP</strong>. C’est à dire qu’elle est configurée pour
+<strong>récupérer automatiquement son adresse IP</strong> et toutes les
+<strong>informations liée au réseau auprès d’un autre serveur
+spécialisé</strong>.</p>
+<h2
+id="installation-du-système-dexploitation."><strong><a id="Etape1_3"></a><span style="color: #dfe30e">1.3.
+Installation du Système d’exploitation.</strong></h2>
+<p>La machine virtuelle maintenant crée, il faut maintenant
+<strong>installer un système d’exploitation</strong> pour ce faire il
+faut tout d’abord récupérer <strong>une iso bootable</strong> d’une
+installation de “Debian 11.2” ou supérieur. Nous pouvons retrouvé l’iso
+en cliquant sur ce <a href="https://www.debian.org/">lien</a>.</p>
+<p>On pourrait se demander qu’est-ce qu’un <strong>fichier iso
+bootable</strong> ? Et bien, une <strong>image disque</strong> (ou image
+ISO) est un (voire plusieurs) <strong>fichier(s) archive</strong>
+proposant la <strong>copie conforme d’un disque optique ou
+magnétique</strong> (tel qu’il serait écrit sur celui-ci).</p>
+<p>Une fois doté d’une iso bootable, nous pouvons <strong>démarrer notre
+machine virtuelle</strong> et séléctionnons l’iso que nous nous venons
+de nous procurer ainsi au démarrage nous nous retrouvons dans le
+<strong>menu d’installation</strong> par soucis de simplicité, nous
+allons utiliser <strong>l’installation graphique</strong> en appuyant
+sur la touche “Entrée” sur <strong>“Graphical Install”</strong>.</p>
+<figure>
+<img
+src="https://debian-handbook.info/browse/fr-FR/stable/images/inst-boot.png"
+alt="install_menu" />
+<figcaption aria-hidden="true">install_menu</figcaption>
+</figure>
+<p>Ainsi nous entrons donc dans le processus d’installation du système
+d’exploitation que nous allons suivre étape par étape :</p>
+<ol type="1">
+<li><p>Nous allons sélectionner <strong>la langue Français</strong> puis
+le <strong>pays France</strong> comme <strong>langue et région de notre
+système</strong>.</p></li>
+<li><p>Le <strong>nom interne</strong> de la machine doit être
+“serveur”.</p></li>
+<li><p><strong>Pas de nom de domaine</strong> donc nous passons cette
+étape en cliquant sur “Continuer”.</p></li>
+<li><p>Nous devons dorénavant décider d’un mot de passe pour le
+<strong>super utilisateur</strong> par soucis de compréhension nous
+allons choisir comme mot de passe “root”.</p></li>
+<li><p>Au tour du <strong>nouvel utilisateur</strong> de créer un login
+et un mot de passe que nous définirons simplement par le prénom pour le
+“login” et “root” pour le mot de passe.</p></li>
+<li><p>Du côté des <strong>partitions des disques</strong>, nous allons
+utilisé la méthode <strong>“Assisté - utiliser un disque
+entier”</strong> ensuite séléctionner <strong>notre disque
+virtuel</strong> que nous avons précedemment créer lors de la création
+de la machine virtuelle c’est sur celui-ci que notre système sera
+installé. Enfin, nous allons partitionné le <strong>disque dans une
+seule partition</strong> puis confirmer en sélectionnant “Terminer la
+partition et appliquer les changements”.</p></li>
+<li><p>Afin de <strong>compléter les logiciels présents sur le support
+d’installation</strong> nous allons utiliser un <strong>miroir</strong>,
+nous allons donc sélectionner le miroir suivant :
+http://debian.polytech-lille.fr/</p></li>
+<li><p>Si vous réalisez l’installation depuis <strong>le réseau de
+l’université</strong> alors il vous faudra renseigner le
+<strong>proxy</strong> de celui-ci : http://cache.univ-lille.fr:3128/
+sinon passer cette étape.</p></li>
+</ol>
+<p>Pour en savoir plus, un <strong>serveur proxy est une sorte de pont
+qui nous relie au reste d’internet</strong>. Normalement,lorsqu’on
+navigue sur internet et qu’on se connecte directement au site qui nous
+intéresse, c’est un proxy qui établit <strong>la communication avec le
+site web</strong> à notre place.</p>
+<figure>
+<img
+src="https://lecrabeinfo.net/app/uploads/2019/04/utilitaires-usuels-systeme-installeur-debian-linux-5cc44275bf537.png"
+alt="software_selection" />
+<figcaption aria-hidden="true">software_selection</figcaption>
+</figure>
+<ol start="9" type="1">
+<li><p>Le système de base étant installé, nous pouvons choisir et
+installer un ou plusieurs <strong>ensembles prédefinies de
+logiciel</strong> afin <strong>d’adapter l’installation de nos
+besoins</strong>. Comme illustré sur l’image ci-dessus, nous allons
+choisir (cocher) d’installer :</p>
+<p>1.<strong>L’environnement de bureau Debian</strong>,<br />
+2.<strong>L’environnement de bureau MATE</strong> (en veillant de bien
+décocher …<strong>GNOME</strong>),<br />
+3.<strong>serveur web</strong>,<br />
+4.<strong>serveur ssh</strong>,<br />
+5.<strong>utilitaires usuels du système</strong>.</p></li>
+</ol>
+<p>Avant de finir l’installation faisons un point sur les
+<strong>paquetages logiciels</strong> que nous venons d’installer :</p>
+<p><strong><em>MATE</em></strong> est un <strong>environnement de
+bureau</strong> qui est la <strong>continuation de GNOME 2</strong>. Il
+fournit un environnement de bureau <strong>intuitif</strong> et
+<strong>attractif</strong> utilisant les traditionnelles métaphores pour
+Linux et d’autres systèmes d’exploitation Unix.
+<strong><em>GNOME</em></strong> est un <strong>environnement de bureau
+utile et attrayant</strong>. Il est à la fois <strong>libre et l’un des
+plus largement utilisés</strong> des environnements de bureau sur le
+système d’exploitation GNU/Linux.</p>
+<p>Un <strong>serveur web transmet des documents</strong> (d’une page
+web à un navigateur par exemple) à ce qu’on appelle <strong>un
+client</strong>. Le terme de serveur web peut en général se référer à
+deux choses différentes : soit au <strong>logiciel d’un serveur
+web</strong>, soit à la <strong>machine sur laquelle s’exécute le
+programme</strong>.</p>
+<p>Le <strong>SSH (Secure Shell)</strong>, désigne à la fois <strong>un
+protocole de communication</strong> et un <strong>programme
+informatique</strong>. Il permet la <strong>connexion d’une machine
+distante</strong> (serveur) via une <strong>liaison sécurisée</strong>
+dans le but de <strong>transférer des fichiers</strong> ou des
+<strong>commandes</strong> en toute sécurité.</p>
+<ol start="10" type="1">
+<li><span style="color: #fa2222"> /!!! L’installation est maintenant
+fini cependant avant de continuer il faut IMPERATIVEMENT s’assurer que
+le lecteur optique de notre machine virtuelle soit vide sans quoi nous
+redémarrerons la machine sur l’iso et donc devrons ré-effectuer
+l’installation de l’OS (système d’exploitation).</li>
+</ol>
+<p>Si toute fois l’installation pose soucis le guide Debian est
+disponible en cliquant sur ce <a
+href="https://www.debian.org/doc/manuals/debian-handbook/sect.installation-steps.fr.html">lien</a>.</p>
+<p>Félicitations nous avons <strong>crée notre machine virtuel</strong>
+et <strong>installé notre système d’exploitation</strong> ainsi que des
+paquetages qui nous faciliterons la vie dans les futurs étapes.
+Maintenant passons à la <strong>configuration de notre
+utilisateurs</strong>.</p>
+<p><br></p>
+<h1
+id="etape-2-préparation-du-système."><strong><a id="Etape_2"></a><span style="color: #fa8722">Etape
+2 : Préparation du système.</strong></h1>
+<h2
+id="ajout-dun-utilisateur-dans-le-groupe-dutilisateurs-sudo."><strong><a id="Etape2_1"></a><span style="color: #dfe30e">2.1.
+Ajout d’un utilisateur dans le groupe d’utilisateurs
+<em>sudo</em>.</strong></h2>
+<p>La commande <code>adduser user sudo</code> sert à ajouter un
+utilisateur dans le groupe <em>sudo</em>, celui-ci accorde des
+privilèges d’administrateur.</p>
+<p>Pour voir à quels groupes appartient l’utilisateur on utilise la
+commande : <code>groups user</code>, en remplaçant user par le nom de
+l’utilisateur.</p>
+<figure>
+<img
+src="https://www.howtogeek.com/wp-content/uploads/2017/04/img_58fe4d79d22a9.png?width=1198&amp;trim=1,1&amp;bg-color=000&amp;pad=1,1"
+alt="group_user_ex" />
+<figcaption aria-hidden="true">group_user_ex</figcaption>
+</figure>
+<h2
+id="installation-de-logiciels-et-paquets."><strong><a id="Etape2_2"></a><span style="color: #dfe30e">2.2.
+Installation de logiciels et paquets.</strong></h2>
+<p>Premièrement la commande
+<code>apt install xterm vim curl git sqlite3 build-essential dkms linux-headers-$(uname-r)</code>
+nous sert à installer des logiciels, paquets de tous genre utile pour
+notre utilisation. Ces logiciels sont entres autre :</p>
+<ol type="1">
+<li><p><em>xterm</em> : Permets d’ouvrir en utilisant la commande
+<code>xterm</code> une <strong>instance de terminal
+standard</strong>.</p></li>
+<li><p><em>vim</em> : C’est un <strong>éditeur de texte</strong> sur
+GNU/Linux, il est qualifié d’<strong>outil très puissant</strong> grâce
+à ses diverses fonctions et raccourcis qui permettent de gagner du
+temps.</p></li>
+<li><p><em>curl</em> : Une interface en ligne de commande, destiné à
+<strong>récupérer le contenu d’une ressource sur un réseau
+informatique</strong>. Il est utilisé pour <strong>récupérer des
+API(s)</strong>.</p></li>
+<li><p><em>git</em> : Un <strong>système de contrôle de version</strong>
+d’un travail qui permet (via la commande <code>git</code>) de stocker un
+ensemble de fichiers en <strong>conservant</strong> la chronologie de
+toutes les <strong>modifications</strong> effectués sur ceux-ci, ce qui
+permet entre autre de <strong>mutualiser</strong> un
+développement.</p></li>
+<li><p><em>sqlite3</em> : Une <strong>bibliothèque</strong> qui propose
+un moteur et un <strong>langage SQL</strong> permettant la
+<strong>manipulation sur base de données
+relationnelle</strong>.</p></li>
+<li><p><em>build-essential</em> : Un <strong>ensemble de paquet
+essentiel à l’utilisation de divers logiciels</strong>, compilateur de
+C/C++, outil de dépaquetage, etc.</p></li>
+<li><p><em>dkms</em> : <strong>Framework</strong> (environnement de
+développement) qui permet (via la commande <code>dkms</code>) de
+<strong>générer des modules du noyau Linux</strong> dont les sources
+résident généralement en dehors de <strong>l’arbre des sources du
+noyau</strong>. Cela signifie qu’un utilisateur n’a pas à attendre
+qu’une entreprise, un projet ou un mainteneur de paquet publie une
+nouvelle version du module.</p></li>
+<li><p><em>linux-headers-$(uname -r)</em> : Un paquet fournissant les
+<strong>linux-kernel-headers</strong> (fichiers d’en-têtes du noyaux
+linux). Les <strong>linux-kernel-headers</strong> contiennent
+<strong>les API</strong> (fichiers décrivant la syntaxe à respecter pour
+être compris par le noyau quand on lui demande quelque-chose) offertes
+par le noyau Linux. Ces fichiers sont <strong>nécessaires</strong> pour
+compiler des programmes utilisant ces API <strong>ce qui va nous être
+utile pour l’étape suivante, l’insatllation des supplément
+invités</strong>.</p></li>
+</ol>
+<h2
+id="installation-des-suppléments-invités."><strong><a id="Etape2_3"></a><span style="color: #dfe30e">2.3.
+Installation des suppléments invités.</strong></h2>
+<p>Les <strong>suppléments invités</strong> ou <strong>Additions
+invité</strong> comprennement des pilotes de périphériques et des
+applications système. Il est <strong>plus que recommandé</strong> de les
+installer car ces pilotes et applications <strong>optimisent le système
+d’exploitation</strong> pour de <strong>meilleures performances</strong>
+et <strong>une utilisation optimale</strong> via des fonctionnalités
+utiles telle que le presse-papiers bidirectionnel, le glisser-déposer ou
+encore le redimensionnement automatique.</p>
+<p>Afin d’ajouter les supplément invités, il nous faut, comme vu
+précédemment, des outils de compilations et les fichiers d’en-têtes du
+noyaux linux. Pour <strong>connaître quel est le noyau Linux utilisé par
+notre VM</strong> nous pouvons taper dans un terminal la commande
+suivante : <code>uname -a</code> ce qui nous retournera <strong>la
+version de son noyau Linux</strong> utilisé, <strong>son nom</strong>,
+etc. Dans notre cas, le noyau Linux utilisé est
+<strong><em>Linux</em></strong>.</p>
+<p>Pour ceci nous allons utilisé <strong>l’image CD des additions
+invités</strong> via VirtualBox puis le monter grâce à la commande
+:<br />
+<code>sudo mount /dev/cdrom /mnt</code>.</p>
+<figure>
+<img
+src="https://www.malekal.com/wp-content/uploads/2022/01/Installer-VirtualBox-Guest-Additions-menu-Linux-Ubuntu-Debian-1.jpg"
+alt="insert_cd_image" />
+<figcaption aria-hidden="true">insert_cd_image</figcaption>
+</figure>
+<p>La commande <code>mount</code> permet de <strong>manipuler tous les
+montages de systèmes de fichier</strong> de manière très précise. Par
+exemple, pour monter l’unité de stockage <em>/dev/cdrom</em> dans le
+dossier <em>/mtn</em>, le dossier <em>/mtn</em> doit être un dossier
+<strong>existant</strong> et <strong>vide</strong>.</p>
+<p>Une fois <strong>le CD monté</strong>, Nous pouvons installer les
+suppléments en exécutant le script <em>VBoxLinuxAdditions.run</em> via
+la commande :<br />
+<code>sudo /mnt/VBoxLinuxAdditions.run</code><br />
+Notre machine est maintenant prête pour une utilisation confortable.
+Enfin pas tout à fait, il nosu manque un service de messagerie
+éléctronique afin d’assurer la communication.</p>
+<h2
+id="installation-de-claws-mails."><strong><a id="Etape2_4"></a><span style="color: #dfe30e">2.4.
+Installation de <em>claws-mails</em>.</strong></h2>
+<figure>
+<img
+src="https://tipsonubuntu.com/wp-content/uploads/2016/08/claws-mail-logo.jpg"
+alt="logo_claws" />
+<figcaption aria-hidden="true">logo_claws</figcaption>
+</figure>
+<p>Pour cette SAé, nous allons installer le client de courriel
+<strong>rapide</strong>, <strong>facile à utiliser</strong> et
+<strong>puissant</strong> grâce à ses fonctionnalités avancées (RSS
+aggregator, calendar, ou laptop LED handling,ect..), <strong>Claws
+mail</strong>. La configuration (import/export de mails) avec Claws mail
+est <strong>simple à souhait</strong> grâce à son
+<strong>interface</strong> et ses <strong>commandes toutes accessibles
+au clavier</strong>.</p>
+<p>L’installation n’est pas plus compliqué, il suffit d’ouvrir un
+terminal et de taper la commande suivante :<br />
+<code>apt-get install claws-mail claws-mail-plugins claws-mail-extra-plugins claws-mail-i18n</code></p>
+<p>Ce qui nous installeras <strong>Claws mail</strong> ainsi que les
+<strong>extras-plugins</strong> (fonctionnalité avancées). Lors du
+premier lancement, Claws Mail propose un <strong>assistant de
+configuration</strong> pour se connecter à sa messagerie et ainsi
+configurer son compte messagerie avec une adresse mail.</p>
+<ul>
+<li><h2
+id="configuration-du-proxy."><strong><a id="Etape2_5"></a><span style="color: #dfe30e">2.5.
+Configuration du Proxy.</strong></h2></li>
+</ul>
+<p>Au sein de l’université, nous devrons utilisé un
+<strong>proxy</strong>, il nous serait donc très utile d’en configurer
+un. Pour ce faire il y a deux solutions disponibles :<br />
+1. <strong><em>Configuration pour un logiciel particulier</em></strong>
+: Comme git ou apt, certains logiciels sont <strong>capables de gérer un
+proxy</strong> pour leur propre utilisation. Cependant dans notre cas,
+nous allons procéder à une configuration générale.</p>
+<ol start="2" type="1">
+<li><strong><em>Configuration générale</em></strong>
+<ol type="1">
+<li><p>Ouvrir un terminal et <strong>se placer dans le
+répertoire</strong> <em>$HOME</em> via la commande
+<code>cd &lt;destination&gt;</code>.</p></li>
+<li><p>Via la commande <code>nano .bashrc</code> <strong>ajouter les
+lignes</strong> suivante dans le fichier <em>.bashrc</em>:<br />
+<code>export http_proxy=http://cache.univ-lille.fr:3128</code><br />
+<code>export https_proxy=$http_proxy</code>.</p></li>
+<li><p>Cette méthode de configuration du proxy permet <strong>d’éviter
+d’avoir à saisir les commandes précédente à chaque
+fois</strong>.</p></li>
+<li><p>Pour <strong>désactiver le proxy</strong>, il suffit de taper
+dans un terminal la commande suivante :
+<code>unset http_proxy</code>.<br />
+</p></li>
+</ol></li>
+</ol>
+<p><br></p>
+<h1
+id="etape-3-séléction-dun-front-end."><strong><a id="Etape_3"></a><span style="color: #fa8722">Etape
+3 : Séléction d’un front-end.</strong></h1>
+<h2
+id="séléction-dun-frontend---préliminaire."><strong><a id="Etape3_1"></a><span style="color: #dfe30e">3.1.
+Séléction d’un frontend - Préliminaire.</strong></h2>
+<ul>
+<li><h4
+id="a.-configuration-de-git."><strong><a id="Etape3_1_a"></a><span style="color: #3399ff">3.1.A.
+Configuration de </strong><em>Git</em><strong>.</strong></h4></li>
+</ul>
+<p>Dans un premier temps, nous allons commencer par <strong>configurer
+notre identité</strong> sur <strong><em>Git</em></strong> pour notre
+compte utilisateur. La commande <code>git config</code> permet de
+spécifier les paramètres de configuration de
+<strong><em>Git</em></strong> et de cette manière utiliser Git de
+manière plus <strong>personnalisée</strong>.</p>
+<p>Ainsi, nous pouvons configurer notre identité <strong>(constitué du
+couple Prénom/Nom et notre email)</strong> à l’aide des commandes
+ci-dessous : 1.
+<code>git config --global user.name "Prénom Nom"</code><br />
+2. <code>git config --global user.email "votre@email"</code></p>
+<p>Exemple :</p>
+<figure>
+<img
+src="https://www.codegrepper.com/codeimages/git-config-local-user.png"
+alt="gitconfig_ex" />
+<figcaption aria-hidden="true">gitconfig_ex</figcaption>
+</figure>
+<p>L’identité est une <strong>information importante</strong> car
+<strong>toutes les validations</strong> dans
+<strong><em>Git</em></strong> utilisent cette information et elle est
+<strong>indélébile</strong> dans toutes les validations que vous pourrez
+réaliser.</p>
+<p>Dans un même temps, nous allons configurer <strong>le nom de la
+branche par défaut</strong>. En effet, par défaut
+<strong><em>Git</em></strong> crée une branche nommée
+<strong><em>master</em></strong> quand vous créez un nouveau repository
+avec <code>git init</code> en éxécutant la commande ci-dessous cela
+permet d’éviter le warning concernant la création d’une branche par
+défaut.</p>
+<p><code>git config --global init.defaultBranch "master"</code></p>
+<ul>
+<li><h4
+id="b.-gitk-git-gui."><strong><a id="Etape3_1_b"></a><span style="color: #3399ff">3.1.B.
+</strong><em>Gitk</em>** &amp;
+<strong><em>Git-GUI</em></strong>.</h4></li>
+</ul>
+<p><strong><em>gitk</em></strong> permet d’<strong>afficher sous forme
+d’arbre</strong> l’<strong>historique de notre dépôt</strong>. Pour
+chaque commit on peut y obtenir des informations comme <strong>le
+message de commit</strong>,l’<strong>arboresence</strong> ainsi
+qu’<strong>une vue</strong> de ce qu’elle contient. Le logiciel
+<strong><em>gitk</em></strong> n’a pas d’installation requise, il est
+déjà integré avec <strong><em>git</em></strong>.</p>
+<figure>
+<img src="https://i.redd.it/p7uxv1lgtph41.png" alt="gitgui_logo" />
+<figcaption aria-hidden="true">gitgui_logo</figcaption>
+</figure>
+<p><strong><em>git-gui</em></strong> est l’<strong>interface de base de
+</strong><em>git</em><strong>, on peut l’utiliser pour créer des
+dépôts</strong> facilement, <strong>cloner un dépôt</strong> et
+d’<strong>ouvrir le dernier dépôt</strong>. De son côté, il se pourrait
+que <strong><em>git-gui</em></strong> ne soit pas installé, pour y
+remédier il suffit de taper la commande
+<code>sudo apt-get install git-all</code> qui permet d’installer les
+packages supplémentaires.</p>
+<h2
+id="séléction-dun-frontend---comparaison-avec-une-autre-interface-graphique."><strong><a id="Etape3_2"></a><span style="color: #dfe30e">3.2.
+Séléction d’un frontend - Comparaison avec une autre interface
+graphique.</strong></h2>
+<p>Nous allons maintenant comparer l’interface de git-gui par rapport à
+une autre afin d’y cerner les avantages/inconvénients de celles-ci. Pour
+ceci, nous avons décidé d’installer l’interface
+<strong><em>SmartGit</em></strong> car il est facile d’installation et
+facile d’utilisation ce qui avantagera un utilisateur avec peu
+d’expérience. L’installation de cette interface a été effectué via les
+commandes suivante :<br />
+</p>
+<ol type="1">
+<li><p>Récupérer <strong>l’archive tar.gz</strong> sur le site internet.
+(https://www.syntevo.com/smartgit/)</p></li>
+<li><p><code>tar xzf &lt;nom_de_l'archive&gt;</code> (Extraire
+l’archive),</p></li>
+<li><p><code>bin/smartgit.sh</code> (se rendre dans le répertoire bin de
+l’arboresence extraite puis <strong>éxecuter</strong> le script
+<em>smartgit.sh</em>),</p></li>
+<li><p><code>bin/add-menuitem.sh</code> (Ajout de smartgit dans le menu
+des applications).</p></li>
+</ol>
+<ul>
+<li><h4
+id="a.-avantages."><strong><a id="Etape3_2_a"></a><span style="color: #3399ff">3.2.A.
+Avantages.</strong></h4></li>
+</ul>
+<p>Facilité d’installation sur toutes les plateformes (sauf pour le
+serveur sur Windows)<br />
+Facilité d’utilisation.<br />
+Il y a une vue pour voir les logs.<br />
+La vue de « treeview » et le résumé des fichiers modifiés et la facilité
+de faire d’une fonctionnalité sont explicite.<br />
+Branches locales et branches publiques<br />
+Fonctionnalité pour mettre de côté temporairement des modifications sans
+les commiter<br />
+La fonction « cherry-pick » pour pouvoir fusionner certains commit
+seulement<br />
+Les commits sont en local seulement jusqu’au moment où on les « push
+»<br />
+Facile de revenir avec un checkout à un état passé de
+l’architecture.</p>
+<ul>
+<li><h4
+id="b.-inconvénients."><strong><a id="Etape3_2_b"></a><span style="color: #3399ff">3.2.B.
+Inconvénients.</strong></h4></li>
+</ul>
+<p>L’interface peut être gourmande en ressource et sur certaines
+machines elle peut être de ce fait lente.<br />
+Ne se met pas à jour automatiquement, l’utilisateur doit appuyer sur F5
+pour rafraîchir la vue car il n’y a pas de mise à jour automatique
+disponible.</p>
+<p><br></p>
+<h1
+id="etape-4-installation-de-gitea."><strong><a id="Etape_4"></a><span style="color: #fa8722">Etape
+4 : Installation de Gitea.</strong></h1>
+<p>Au cours des étapes précédente nous avons eu l’ocassions d’installer
+et configurer le logiciel de contrôle de version
+<strong><em>Git</em></strong>. Cependant, nous allons installer une
+autre application permettant un travail collaboratif à distance nommé
+<strong><em>Gitea</em></strong> néanmoins l’installation de git reste
+<strong>essentiel</strong> car Gitea est basé dessus.</p>
+<figure>
+<img src="https://boehrsi.de/img/news/gitea.png" alt="logo_gitea" />
+<figcaption aria-hidden="true">logo_gitea</figcaption>
+</figure>
+<p>Avant tout qu’est-ce-que <strong><em>Gitea</em></strong> ?
+<strong><em>Gitea</em></strong> est une <strong>forge libre</strong>
+(système de gestion et de maintenance collaborative de texte qui permet
+de rassembler des projets et des développeurs dans l’objectif de
+permettre à plusieurs développeurs de participer ensemble au
+développement d’un ou plusieurs logiciels, le plus souvent à travers le
+réseau Internet) développé via le langage de programmation inspiré de C
+et Pascal de Google, <strong><em>Go</em></strong>. Destiné
+principalement pour <strong>l’hebergément de développement
+logiciel</strong>, il comporte aussi un <strong>système de suivi des
+bugs</strong>, un <strong>wiki</strong> ce qui peut être utile pour les
+novices, des <strong>outils de relecture de code</strong> et également
+un <strong>système d’extentions</strong>. Il peut être comparé comparer
+à GitLab ou encore à GitHub.</p>
+<h2
+id="installation-de-gitea."><strong><a id="Etape4_1"></a><span style="color: #dfe30e">4.1.
+Installation de </strong><em>Gitea</em><strong>.</strong></h2>
+<ul>
+<li><h4
+id="a.-installation-et-configuration-de-gitea."><strong><a id="Etape4_1_a"></a><span style="color: #3399ff">4.1.A.
+Installation et configuration de
+</strong><em>Gitea</em><strong>.</strong></h4></li>
+</ul>
+<p>Pour l’installation nous allons nous référer à la <a
+href="https://docs.gitea.io/fr-fr/install-from-binary/">documentation
+officiel</a> ainsi que des <strong>sites web externes</strong> (lien
+dans les sources) en ne prenant qu’en compte l’installation à partir des
+<strong>binaires</strong>. L’installation avec le bianire pré-compilé
+nécessite un support de système de gestion de bases de données
+relationnelles tel que <strong><em>MySQL</em></strong>,
+<strong><em>PostgreSQL</em></strong> ou encore celui que nous avons
+précedemment installé <strong><em>SQLite</em></strong> il est donc
+nécessaire d’avoir suivi les étapes précedentes pour le bon déroulement
+des suivantes.</p>
+<p>Avant toute chose nous allons <strong>mettre à jour notre
+environnement</strong> à l’aide des commandes suivantes :<br />
+<code>apt update</code> suivi de <code>apt upgrade</code></p>
+<p>Une fois fait, afin d’obtenir le binaire deux choix s’offre à vous
+:</p>
+<ol type="1">
+<li>Il suffit de choisir le fichier correspondant à votre plateforme à
+partir de la <a href="https://dl.gitea.io/gitea">page de
+téléchargement</a>.</li>
+<li>Executez, dans un terminal, la commande suivante :
+<code>wget -O gitea https://dl.gitea.io/gitea/1.16.8/gitea-1.16.8-linux-amd64</code></li>
+</ol>
+<p>Le binaire étant téléchargé, rendez vous dans le répertoire ou il se
+situe grâce à un terminal et la commande
+<code>cd &lt;destination&gt;</code>. Maitenant il va falloir rendre le
+binaire <strong>éxecutable</strong> avec la commande :</p>
+<p><code>chmod +x gitea</code></p>
+<p>La commande <code>chmod</code> permet de <strong>changer les
+permissions d’accès d’un fichier ou d’un répertoire</strong>, dans notre
+cas on ajoute l’autorisation d’éxecution avec le <code>+x</code> à notre
+binaire <code>gitea</code> ce qui permet de rendre notre binaire
+éxecutable.</p>
+<p>Après avoir suivi les étapes ci-dessus, vous aurez un binaire
+<code>gitea</code> dans votre répertoire de travail, nous allons
+maintenant éxecuter la version web de notre binaire grâce à la commande
+suivante :</p>
+<p><code>./gitea web</code></p>
+<p>Ceci heberge un serveur sur le localhost, nous pourrons donc avoir
+accès à <strong>l’interface web de gitea</strong> herbergé
+<strong>localement</strong> sur notre machine en accédant à l’adresse
+donné par gitea avec le port 3000 : <a
+href="http://127.0.0.1:3000">http://127.0.0.1:3000</a> (127.0.0.1 est
+une adresse qui réfère votre propre machine)</p>
+<figure>
+<img src="img/.gitea_web.png" alt="execution ./gitea_web" />
+<figcaption aria-hidden="true">execution ./gitea_web</figcaption>
+</figure>
+<p>Depuis <strong>l’interface web</strong> nous allons maintenant
+<strong>installer</strong> et <strong>configurer</strong> Gitea.
+Rendez-vous sur la <a href="http://127.0.0.1:3000/install">page
+d’installation</a> et en premier lieu vous pouvez observer les
+<strong>Database Settings</strong> qui sont tout simplement nos
+paramètres concernant la base de données, comme indiqué dans la capture
+d’écran ci-dessous le type de base de données <strong>doit</strong> être
+celui que nous avons installé précedemment c’est à dire
+<strong><em>SQLite3</em></strong>, ainsi dans le menu déroulant
+<strong>veuillez choisir </strong><em>SQLite3</em>**** et laisser
+<strong>les autres paramètres par défaut</strong> nous n’avons pas
+besoin d’y toucher sauf pour si vous voulez changer le nom du site dans
+le paramètre intitulé <strong>Site Title</strong>.</p>
+<figure>
+<img src="img/SQLite.png" alt="param_sqlite" />
+<figcaption aria-hidden="true">param_sqlite</figcaption>
+</figure>
+<p>Avant de finaliser notre installation et configuration, situé dans
+<strong>les paramètres optionnel</strong> nous allons <strong>ajouter un
+compte administrateur</strong> qui aura pour :</p>
+<ol type="1">
+<li><strong>nom d’utilisateur</strong> : gitea</li>
+<li><strong>mot de passe</strong> : gitea</li>
+<li><strong>email</strong> : git@localhost</li>
+</ol>
+<figure>
+<img src="img/tempsnip.png" alt="param_administrator" />
+<figcaption aria-hidden="true">param_administrator</figcaption>
+</figure>
+<p>Ceci étant fait, nous pouvons désormais <strong>finaliser
+l’installation</strong> en cliquant sur le <strong>bouton bleu “Install
+Gitea”</strong>.</p>
+<ul>
+<li><h4
+id="b.-mise-à-jour-potentielles."><strong><a id="Etape4_1_b"></a><span style="color: #3399ff">4.1.B.
+Mise à jour potentielles.</strong></h4></li>
+</ul>
+<p>Gitea maintenant installé sur votre machine possède <strong>une
+version propre</strong>, des <strong>version futurs sortiront</strong>
+de ce fait pour vérifier si <strong>votre version du programmme</strong>
+est celle en date il faut comparer <strong>la dernière version du
+programme affiche</strong> sur la <a
+href="https://dl.gitea.io/gitea">page de téléchargement</a> et
+<strong>la votre</strong> en éxecutant la commande
+<code>gitea --version</code>.</p>
+<p>Si votre version est à mettre à jour, alors il suffit de remplacer
+l’ancien binaire par le nouveau et de relancer le service associé :</p>
+<p><code>systemctl stop gitea</code><br />
+<code>VERSION=$(wget --quiet https://dl.gitea.io/gitea/version.json -O - | cut -d \" -f 6)</code><br />
+<code>wget -O /usr/local/bin/gitea https://dl.gitea.io/gitea/${VERSION}/gitea-${VERSION}-linux-amd64 &amp;&amp; chmod +x /usr/local/bin/gitea</code><br />
+<code>systemctl start gitea</code></p>
+<h2
+id="utilisation-basique-de-gitea."><strong><a id="Etape4_2"></a><span style="color: #dfe30e">4.2.
+Utilisation basique de </strong><em>Gitea</em><strong>.</strong></h2>
+<ul>
+<li><h4
+id="a.-création-dun-nouveau-projet."><strong><a id="Etape4_2_a"></a><span style="color: #3399ff">4.2.A.
+Création d’un nouveau projet.</strong></h4></li>
+</ul>
+<figure>
+<img src="img/create_repositories.PNG" alt="create_repo" />
+<figcaption aria-hidden="true">create_repo</figcaption>
+</figure>
+<p>Nous allons maintenant aborder la <strong>création d’un nouveau
+projet/dépôt</strong> pour cela rien de plus simple, <strong>tout en
+étant sur l’interface web</strong> hebergé localement sur notre machine,
+il suffit de vous <strong>connecter avec notre compte
+administrateur</strong> fraichement crée. Une fois fait, nous allons y
+trouver un petit symbole <strong>‘+’</strong> un menu déroulant s’ouvre
+à nous et nous n’avons plus qu’à cliquer sur <strong>‘New
+Repository’</strong> pour créer un nouveau dépôt.</p>
+<figure>
+<img src="img/initialize_readme.PNG" alt="init_readme" />
+<figcaption aria-hidden="true">init_readme</figcaption>
+</figure>
+<p>En cliquant sur <strong>‘New Repository’</strong>, nous tombons sur
+une page avec tout un tas d’informations à compléter tel que le
+<strong>nom du dépôt</strong>, le <strong>propriétaire</strong>, la
+<strong>visibilité de celui-ci</strong>, <strong>une
+description</strong> ces informations que nous sommes libres de modifier
+sauf à une exception près nous allons, comme sur la capture d’écran
+ci-dessus, <strong>cocher l’option d’initialiser le répertoire</strong>
+ce qui va nous permettre de ne pas perdre de temps à créer un
+<strong>ficher README</strong>. Nous pouvons finaliser la création de
+notre dépôt et maintenant <strong>cloner notre dépôt sur notre
+machine</strong> en copiant l’adresse de notre dépôt (capture d’écran
+ci-dessous) puis dans un terminal executez la commande suivante :</p>
+<p><code>git clone &lt;adresse_dépôt_git&gt;</code></p>
+<figure>
+<img src="img/clone.PNG" alt="clone_repository" />
+<figcaption aria-hidden="true">clone_repository</figcaption>
+</figure>
+<p><strong>Cloner un dépôt git</strong> consiste à <strong>copier le
+dépot ainsi que son contenu</strong> de gitea/git à votre machine
+local.</p>
+<p>Après cela, dans notre répertoire nous retrouvons le contenu de notre
+dépôt avec notre fichier README d’extension <strong>.md</strong>. Un
+fichier .md est un <strong>fichier de texte simple qui ne contient aucun
+autre élément</strong>. À l’aide de <strong>symboles intégrés</strong>
+dans les lignes, vous avez la possibilité de <strong>définir la mise en
+forme de sections de texte</strong>. Par exemple, encadrez un mot ou une
+autre portion de texte de deux astérisques pour les mettre en gras.
+L’extension <strong>.md</strong>, <strong>parfois aussi
+.markdown</strong>, signifie <strong><em>« Markdown Documentation
+»</em></strong>. <strong>Markdown est un langage de balisage
+simplifié</strong> contrairement à HTML, par exemple, il est
+<strong>plus facile à lire par les utilisateurs humains</strong>.</p>
+<p>Nous allons modifier ce fichier README.md en y ajoutant des
+caractères, des mots, des phrases peu importe tant qu’<strong>il n’est
+pas vide</strong>. Enregistrons notre fichier non vide maintenant et
+<strong>essayons de mettre à jour le fichier README vide de notre dépôt
+sur gitea</strong>. Pour cela rendez-vous dans notre répertoire du
+projet à l’aide du terminale et éxecutez l’ordre des commandes suivantes
+de manières à mettre à jour notre dépôt :</p>
+<ol type="1">
+<li><code>git add README.md</code></li>
+<li><code>git commit -m "Mise_à_jour_README"</code></li>
+<li><code>git push origin master</code></li>
+</ol>
+<p>Si vous avez correctement suivi les étapes, le fichier README.md
+devrait alors avoir été mis à jour dans votre dépôt gitea.</p>
+<ul>
+<li><h4
+id="b.-déposer-des-projets-existants."><strong><a id="Etape4_2_b"></a><span style="color: #3399ff">4.2.B.
+Déposer des projets existants.</strong></h4></li>
+</ul>
+<p>Nous avons vu comment créer des nouveau dépôts mais il pourrait être
+désirable de <strong>déposer des projets déjà existants</strong>. Nous
+avons donc <strong>essayer de cloner un projet tel que l’une de nos
+ressources (dev-oo ayant un dépôt sur gitlab)</strong> mais cela ne
+marche visiblemment pas car les modes d’accès réseau sont
+différents.</p>
+<h2
+id="dépôt-des-rapports."><strong><a id="Etape4_3"></a><span style="color: #dfe30e">4.3.
+Dépôt des rapports.</strong></h2>
+<p>Maintenant il serait intéressant de <strong>créer un dépôt pour y
+ajouter tout nos précédents rapports avant la rédaction de celui
+final</strong>. Nous avons donc créer <strong>un projet nommé
+“projet_sae” en suivant les étapes précédentes</strong> et en y ajoutant
+les rapports <strong>d’abord en local</strong> puis dans le dépôt avec
+les commandes suivantes :</p>
+<ol type="1">
+<li><code>git add rapport_1.md rapport_2.md rapport_3.md rapport_4.md</code></li>
+<li><code>git commit -m "Add_rapports"</code></li>
+<li><code>git push origin master</code></li>
+</ol>
+<h2
+id="les-différents-modes-daccès-réseau-de-virtualbox."><strong><a id="Etape4_4"></a><span style="color: #dfe30e">4.4.
+Les différents modes d’accès réseau de VirtualBox.</strong></h2>
+<p>Dorénavant, il serait utile de pouvoir <strong>gérer nos projets sur
+la machine qui héberge</strong> et <strong>non uniquement sur la machine
+virtuelle</strong>. Nous allons rendre cela possible grâce a <strong>la
+redirection des ports</strong>.</p>
+<p>Pour <strong>comparer cette nouvelle interface</strong> nous avons
+voulu aussi utiliser <strong><em>gitweb</em></strong> qui est un
+<strong>script CGI</strong> fournit par Git. Le terme
+<strong>CGI</strong> désigne <strong>une interface utilisée par les
+serveurs HTTP</strong>. Au lieu d’envoyer le contenu d’un fichier
+(fichier HTML, image), le serveur HTTP <strong>exécute un programme,
+puis retourne le contenu généré</strong>.</p>
+<figure>
+<img src="https://git-scm.com/book/en/v2/images/git-instaweb.png"
+alt="gitweb.png" />
+<figcaption aria-hidden="true">gitweb.png</figcaption>
+</figure>
+<p>Afin de démarrer <a
+href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-GitWeb">le
+scrpit gitweb</a> il est nécessaire <strong>d’éxecuter la commande
+ci-dessous</strong> qui va <strong>démarrer un serveur HTTP sur le port
+1234</strong> et lancer automatiquement un navigateur Internet qui ouvre
+la page d’accueil.</p>
+<p><code>git instaweb --httpd=webrick</code></p>
+<p>Nous n’avons plus qu’à <strong>rediriger les ports de ces 2
+interfaces</strong>. Désormais, nous pouvons créer un nouveau projet
+Gitea à partir d’un de nos projets existant sur notre machine et non
+uniquement sur la machinne virtuelle.</p>
+<p>Pour aller plus loin, comparons Gitea, gitweb et SmartGit pour en
+décerner les avantages,inconvénients et spécificités de chacun.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 31%" />
+<col style="width: 26%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong><em>smartgit</em></strong></th>
+<th><strong><em>gitea</em></strong></th>
+<th><strong><em>gitweb</em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>avantages</strong></td>
+<td></td>
+<td>Accès via navigateur</td>
+<td>Idem</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Idem</td>
+<td>Interface simple</td>
+<td>Idem</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Idem</td>
+<td>Performant et flexible</td>
+<td>Idem</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Idem</td>
+<td>Utilisable en entreprise</td>
+<td>Idem</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Idem</td>
+<td>Support très présent</td>
+<td>Idem</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Leger</td>
+<td>Idem</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Facilité d’utilisation</td>
+<td>“”</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Fonctionnalités utiles (c.f cherry-pick)</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>inconvenients</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Gourmande en ressources</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Pas de mise à jour automatique</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>Installation pas intuitive</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td>Manque de fonctionnalité</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td>impossible d’importer des projets existant</td>
+</tr>
+<tr class="odd">
+<td><strong>specificités</strong></td>
+<td></td>
+<td>hébergement en local</td>
+<td>Idem</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>fonctionne avec une base de donnée</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>nombre de fonctionnalité accrue</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>représentation graphique des branches</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h1
+id="etape-5-finalisation-du-rapport."><strong><a id="Etape_5"></a><span style="color: #fa8722">Etape
+5 : Finalisation du rapport.</strong></h1>
+<figure>
+<img
+src="https://framalibre.org/sites/default/files/leslogos/pandoc.png"
+alt="logo_pandoc" />
+<figcaption aria-hidden="true">logo_pandoc</figcaption>
+</figure>
+<p>Pour réaliser <strong>le rapport final sous HTML</strong> comme
+indiqué dans l’introduction, il va falloir <strong>fusionner nos 4
+rapports précedents</strong> constituant chacun une étape puis y ajouter
+une <strong>introduction</strong>, une <strong>conclusion</strong> et
+une <strong>table des matières</strong> pour rendre la navigation plus
+fluide et pour finir convertir l’ensemble en fichier HTML. Pour se faire
+nous allons utiliser le logiciel prénommé
+<strong><em>Pandoc</em></strong>, <strong><em>Pandonc</em></strong> est
+un <strong>puissant logiciel de conversion de documents en ligne de
+commande</strong>. Il converti vers et depuis de <strong>multiples
+formats</strong>. Mais son intérêt réside surtout dans
+<strong>l’automatisation de tâches</strong> et la possibilité d’utiliser
+des modèles (templates) pour obtenir des produits de conversion. La
+commande Pandoc supporte plusieurs options servant à
+<strong>conditionner la conversion</strong> ou <strong>mettre en
+page</strong> la sortie demandée.</p>
+<p>Nous devons donc dans un premier temps installer le logiciel Pandoc,
+en consultant la <a
+href="https://pandoc.org/installing.html#linux">documentation officielle
+de Pandoc</a> nous nous sommes rendus compte que l’installation était
+très simple et rapide.</p>
+<p>En effet, dans un premier temps il suffit de <strong>récupérer le
+paquet Debian correspondant à notre architecture</strong> sur la <a
+href="https://github.com/jgm/pandoc/releases/tag/2.18">page de
+téléchargement</a>, dans notre cas nous avons une architecture
+<strong>amd64</strong>.</p>
+<p>Maintenant, ouvrons un terminal et à l’aide de la commande
+<code>cd &lt;destination&gt;</code> vu et revu, plaçons nous dans le
+<strong>répertoire où le paquet Debian a été télechargé</strong>.
+Ensuite, il ne reste plus qu’à éxecuter la commande suivante pour
+installer le logiciel <strong><em>Pandoc</em></strong>:</p>
+<p><code>sudo dpkg -i &lt;nom_du_paquet&gt;</code></p>
+<p>La commande <code>dpkg</code> est l’<strong>outil gérant les paquets
+des distributions basées sur Debian</strong>, l’option <code>-i</code>
+signifie <code>--install</code> et indique que l’on veut installer le
+paquet. Ainsi, nous pouvons vérifier si <strong><em>Pandoc</em></strong>
+est installé en executant la commande :</p>
+<p><code>pandoc --version</code></p>
+<p>Si cela nous retourne la version de <strong><em>Pandoc</em></strong>
+alors celui-ci est bien installé sur votre machine. Dorénavant, nous
+allons l’utiliser pour <strong>fusionner nos rapports</strong> mais
+avant toute chose il faut d’abord se placer dans le repértoire de nos
+rapports. Ceci étant fait, nous pouvons entrer la commande suivante afin
+de <strong>fusionner nos 4 rapports en un seul nouveau fichier
+Markdown</strong> ce qui nous facilitera la vie :</p>
+<p><code>pandoc rapport_1.md rapport_2.md rapport_3.md rapport_4.md -f markdown -t markdown -s -o rapport_final.md</code></p>
+<p>L’option <code>-f</code> signifie <strong>from</strong> qui est notre
+<strong>type de fichier de départ</strong> tandis que l’option
+<code>-t</code> signifie <strong>to</strong> qui est notre <strong>type
+de fichier que l’on souhaite en sortie</strong>. L’option
+<code>-o</code> indique tout simplement le <strong>nom du nouveau
+fichier</strong> que l’on souhaite donné après conversion. Donc ici,
+nous voulons fusionner nos 4 rapports en les indiquant tous puis nous
+voulons les convertir en 1 seul fichier markdown nommé
+rapport_final.md.</p>
+<p>Une fois en possesion du nouveau fichier fusionnant les rapports,
+nous pouvons ajouter notre tables des matières, notre introduction et
+notre conclusion. Lorsque vous serez satisfait de votre création, il n’y
+aura plus qu’<strong>une seule étape</strong>, la <strong>conversion en
+page HTML</strong> réalisable grâce à la commande suivante :</p>
+<p><code>pandoc rapport_final.md -f markdown -t html -s -o rapport_final.html</code></p>
+<p>Suite à cela, nous obtenons un <strong>fichier contenant l’ensemble
+de ce que nous avons réalisé converti sous format HTML ouvrable dans un
+navigateur</strong>. Maintenant libre à nous de le personnaliser comme
+nous le voulons en y rajoutant de le couleur ou autre. Malheuresement,
+nous nous sommes rendu comptre trop tard que <strong>l’option</strong>
+<code>--toc</code> permettait de <strong>générer automatiquement une
+table des matières</strong> et de ce fait nous avons manuellement
+intégrer une table des matières avec la balise <a> du langage HTML.</p>
+<p><br></p>
+<h1 id="conclusion">Conclusion <a id="conclu"></a></h1>
+<p>En conclusion, au travers de cette SAé nous avons appris à
+<strong>créer et préparer un environnement de travail virtuel</strong>
+en passant d’abord par la création de la machine virtuelle,
+l’installation de l’OS, la préparation du système, la sélection d’un
+front-end et enfin l’installation et l’utilisation de <strong>notre
+objectif principale</strong>, l’<strong>application permettant un
+travail collaboratif à distance</strong> Gitea. Nous avons également
+appris à <strong>nous documenter</strong>, <strong>réferer</strong>,
+<strong>à chercher</strong> ainsi qu’à <strong>lire</strong> <strong>la
+documentation officielle des sites</strong> pour nous aider tout au long
+de la phase d’installation. Apprendre c’est bien mais retransmettre
+c’est encore mieux, c’est pourquoi nous avons mêmement appris à
+<strong>rédiger des rapports</strong> sur ce que nous avions fait de
+manière à ce que cela soit plus <strong>le plus compréhensible
+possible</strong> et ce pour tout les catégories de personnes ainsi
+<strong>une personne n’ayant quasi aucune notion en
+informatique</strong> peut suivre ce rapport et <strong>comprendre les
+actions réalisées</strong>. De plus, la rédaction de ces rapports à été
+effectué dans le langage de balisage Markdown, nous avons donc appris à
+<strong>maîtriser la syntaxe et la mise en forme</strong> ainsi que la
+<strong>conversion d’un fichier Markdown en une page HTML</strong> via
+l’outil Pandoc. Cependant, pour les gens pressés le rapport peut-être
+très long à lire c’est pourquoi nous avons appris à <strong>réaliser une
+carte mentale</strong> et à <strong>maîtriser l’outil XX</strong>
+permettant de <strong>visualier les informations important de manière
+synthétique et récapitulative</strong> de chaque rapports via des
+<strong>mots et des expressions-clés</strong>.</p>
+<p><br></p>
+<h1 id="sources">Sources : <a id="Sources"></a></h1>
+<p><a
+href="https://docs.gitea.io/fr-fr/install-from-binary/">Documentation
+Gitea (Installation via les binaires)</a><br />
+<a href="https://fr.wikipedia.org/wiki/Gitea">Wikipédia Gitea</a><br />
+<a
+href="https://www.tutomiel.com/adresse-ip-127001-64490.htm">Qu’est-ce-que
+l’adresse 127.0.0.1 ?</a><br />
+<a href="https://fr.wikipedia.org/wiki/Chmod">Wikipédia Commande
+chmod</a><br />
+<a
+href="https://www.ionos.fr/digitalguide/sites-internet/developpement-web/quest-ce-quun-fichier-md/">Qu’est-ce-qu’un
+fichier md ?</a><br />
+<a
+href="https://www.virtualbox.org/manual/UserManual.html#networkingdetails">Documentation
+VirtualBox</a><br />
+<a href="https://github.com/flobee/gitea-installerScript">Gitea
+Installer</a><br />
+<a
+href="https://fr.wikipedia.org/wiki/Common_Gateway_InterfaceWikipédia">Common
+Gateway Interface</a><br />
+<a
+href="https://www.syntevo.com/smartgit/download/#installation-instructions/">Documentation
+d’installation SmartGit</a><br />
+<a
+href="http://codeur-pro.fr/gerer-son-historique-visuellement-avec-gitk">Qu’est-ce-que
+Gitk ?</a><br />
+<a href="http://codeur-pro.fr/git-gui-guide-complet/">Qu’est-ce-que
+Git-GUI ?</a><br />
+<a
+href="https://ubunlog.com/fr/smartgit-interfaz-usuario-trabajar-git-ubuntu/">Article
+SmartGit #1</a><br />
+<a href="https://david.gregoire.ca/tag/smartgit">Article SmartGit
+#2</a><br />
+<a href="https://fr.wikipedia.org/wiki/Claws_Mail">Wikipédia
+Claws-Mail</a><br />
+<a href="https://wiki.gentoo.org/wiki/Linux-headers">Wiki
+Linux-headers</a><br />
+<a href="https://fr.wikipedia.org/wiki/Xterm">Wikipédia Xterm</a><br />
+<a href="https://fr.wikipedia.org/wiki/Vim">Wikipédia Vim</a><br />
+<a href="https://fr.wikipedia.org/wiki/CURL">Wikipédia Curl</a><br />
+<a href="https://fr.wikipedia.org/wiki/Git">Wikipédia Git</a><br />
+<a href="https://fr.wikipedia.org/wiki/SQLite">Wikipédia
+SQLite</a><br />
+<a
+href="https://fr.wikipedia.org/wiki/Dynamic_Kernel_Module_Support">Wikipédia
+DKMS</a><br />
+<a
+href="https://lecrabeinfo.net/virtualbox-installer-les-additions-invite-guest-additions.html">Article
+Installation Additions invités</a><br />
+<a href="https://doc.ubuntu-fr.org/mount_fstab">Documentation ubuntu
+mount</a><br />
+<a href="https://fr.wikipedia.org/wiki/Proxy">Wikipédia Proxy</a><br />
+<a
+href="https://git-scm.com/book/fr/v2/Personnalisation-de-Git-Configuration-de-Git">Documentation
+git gitconfig</a><br />
+<a href="https://git-scm.com/docs/gitk/">Documentation git
+gitk</a><br />
+<a href="http://codeur-pro.fr/git-gui-guide-complet/">Article
+Git-GUI</a><br />
+<a href="https://www.syntevo.com/smartgit/">Site web SmartGit</a><br />
+<a href="https://docs.syntevo.com/SmartGit/Latest/">Documentation
+SmartGit</a><br />
+<a href="https://framalibre.org/content/pandoc">Qu’est-ce-que Pandoc
+?</a><br />
+<a href="https://fr.wikipedia.org/wiki/Pandoc">Wikipédia
+Pandoc</a><br />
+<a href="https://pandoc.org/installing.html#linux">Documentation Pandoc
+(installation)</a><br />
+<a href="https://pandoc.org/getting-started.html">Documentation Pandoc
+(utilisation)</a><br />
+<a href="https://doc.ubuntu-fr.org/dpkg">Documentation Ubuntu
+DPKG</a></p>
+</body>
+</html>
